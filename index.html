@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTH 4208 - FUTB Applied Mathematics Web Suite</title>
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <span class="badge">MTH 4208 • ENTREPRENEURSHIP IN MATHEMATICS</span>
+      <h1>FUTB Applied Mathematics Web Suite</h1>
+      <p>Interactive mathematical tools for learning, computation and practical problem solving.</p>
+
+      <div class="profile">
+        <div class="avatar">AM</div>
+        <div>
+          <strong>[YOUR NAME]</strong>
+          <span>Department of Applied Mathematics, Federal University of Technology Babura (FUTB)</span>
+        </div>
+      </div>
+
+      <div class="services">
+        <span>Mathematical Computing</span>
+        <span>Interactive Calculators</span>
+        <span>Data Analysis</span>
+        <span>Educational Tools</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card equation-card">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">MATHEMATICAL DISPLAY ENGINE</span>
+          <h2>Optimization & Mathematical Notation</h2>
+        </div>
+        <span class="number">01</span>
+      </div>
+
+      <p>The optimization objective below is rendered using MathJax and LaTeX:</p>
+      <div class="formula">
+        \[
+        \theta^* = \arg\min_{\theta} J(\theta),
+        \qquad
+        J(\theta)=\frac{1}{2m}\sum_{i=1}^{m}
+        \left(h_\theta(x^{(i)})-y^{(i)}\right)^2
+        \]
+      </div>
+    </section>
+
+    <section class="tools-grid">
+      <article class="card tool-card">
+        <div class="tool-title">
+          <div class="icon">x²</div>
+          <div>
+            <span class="eyebrow">CALCULATOR 01</span>
+            <h2>Quadratic Equation Solver</h2>
+          </div>
+        </div>
+
+        <p class="muted">Solve \(ax^2+bx+c=0\) for real or complex roots.</p>
+
+        <div class="input-grid">
+          <label>
+            <span>Coefficient a</span>
+            <input id="q_a" type="number" step="any" value="1">
+          </label>
+          <label>
+            <span>Coefficient b</span>
+            <input id="q_b" type="number" step="any" value="-5">
+          </label>
+          <label>
+            <span>Coefficient c</span>
+            <input id="q_c" type="number" step="any" value="6">
+          </label>
+        </div>
+
+        <button class="primary" onclick="solveQuadratic()">Solve Equation</button>
+        <div class="result-box" id="q_result" aria-live="polite">
+          Enter coefficients and click Solve Equation.
+        </div>
+      </article>
+
+      <article class="card tool-card">
+        <div class="tool-title">
+          <div class="icon">√</div>
+          <div>
+            <span class="eyebrow">CALCULATOR 02</span>
+            <h2>Pythagorean Theorem</h2>
+          </div>
+        </div>
+
+        <p class="muted">Compute the hypotenuse using \(c=\sqrt{a^2+b^2}\).</p>
+
+        <div class="input-grid">
+          <label>
+            <span>Side a</span>
+            <input id="p_a" type="number" step="any" value="3" min="0">
+          </label>
+          <label>
+            <span>Side b</span>
+            <input id="p_b" type="number" step="any" value="4" min="0">
+          </label>
+        </div>
+
+        <button class="primary" onclick="calcPythagoras()">Calculate Hypotenuse</button>
+        <div class="result-box" id="p_result" aria-live="polite">
+          Enter side lengths and click Calculate.
+        </div>
+      </article>
+
+      <article class="card tool-card">
+        <div class="tool-title">
+          <div class="icon">n!</div>
+          <div>
+            <span class="eyebrow">CALCULATOR 03</span>
+            <h2>Factorial Calculator</h2>
+          </div>
+        </div>
+
+        <p class="muted">Calculate \(n!\) for a non-negative integer \(n\).</p>
+
+        <label>
+          <span>Integer n (0–170)</span>
+          <input id="f_n" type="number" step="1" min="0" max="170" value="5">
+        </label>
+
+        <button class="primary" onclick="calcFactorial()">Calculate Factorial</button>
+        <div class="result-box" id="f_result" aria-live="polite">
+          Enter an integer and click Calculate.
+        </div>
+      </article>
+
+      <article class="card tool-card">
+        <div class="tool-title">
+          <div class="icon">Fₙ</div>
+          <div>
+            <span class="eyebrow">BONUS UTILITY</span>
+            <h2>Fibonacci Sequence</h2>
+          </div>
+        </div>
+
+        <p class="muted">Generate the first \(n\) Fibonacci terms.</p>
+
+        <label>
+          <span>Number of terms (1–30)</span>
+          <input id="fib_n" type="number" step="1" min="1" max="30" value="10">
+        </label>
+
+        <button class="primary" onclick="calcFibonacci()">Generate Sequence</button>
+        <div class="result-box" id="fib_result" aria-live="polite">
+          Enter the number of terms and click Generate.
+        </div>
+      </article>
+    </section>
+
+    <section class="card about">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">ENTREPRENEURIAL APPLICATION</span>
+          <h2>About This Web Suite</h2>
+        </div>
+        <span class="number">02</span>
+      </div>
+      <p>
+        This modular web application demonstrates how mathematical knowledge can be
+        transformed into accessible digital tools. The project separates HTML structure,
+        CSS presentation and JavaScript computational logic for maintainability and reuse.
+      </p>
+      <div class="tech-list">
+        <span>HTML5</span>
+        <span>CSS3</span>
+        <span>JavaScript</span>
+        <span>MathJax / LaTeX</span>
+        <span>VS Code</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>MTH 4208 • Entrepreneurship in Mathematics • Department of Applied Mathematics • FUTB</p>
+  </footer>
+</body>
+</html>
